@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Fylox Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #FFFFFF;
+  color: #0A0A14;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,.07);
+  padding: 0 48px;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 16px;
+  letter-spacing: -.4px; color: #0A0A14;
+}
+.nav-back {
+  font-size: 13px; color: rgba(0,0,0,.4);
+  text-decoration: none; font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+  transition: color .15s;
+}
+.nav-back:hover { color: #0A0A14; }
+
+/* ── LAYOUT ── */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 80px;
+  padding-top: 72px;
+  padding-bottom: 120px;
+}
+
+/* ── SIDEBAR TOC ── */
+.toc {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+.toc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.3);
+  margin-bottom: 16px;
+}
+.toc-list { list-style: none; }
+.toc-item { margin-bottom: 2px; }
+.toc-link {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px; font-weight: 500;
+  color: rgba(0,0,0,.4);
+  text-decoration: none;
+  transition: all .15s;
+  border-left: 2px solid transparent;
+}
+.toc-link:hover {
+  color: #0A0A14;
+  background: rgba(0,0,0,.04);
+}
+.toc-link.active {
+  color: #00B8CC;
+  border-left-color: #00B8CC;
+  background: rgba(0,212,232,.05);
+}
+
+/* ── CONTENT ── */
+.content { min-width: 0; }
+
+/* header */
+.doc-header { margin-bottom: 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(0,0,0,.07); }
+.doc-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 14px; border-radius: 50px;
+  background: rgba(0,212,232,.08); border: 1px solid rgba(0,212,232,.2);
+  font-family: 'DM Mono', monospace; font-size: 11px;
+  color: #009AAA; letter-spacing: .5px;
+  margin-bottom: 24px;
+}
+.doc-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: #00D4E8; }
+.doc-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 800; letter-spacing: -2px;
+  line-height: 1.05; color: #0A0A14;
+  margin-bottom: 16px;
+}
+.doc-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; color: rgba(0,0,0,.35);
+  letter-spacing: .5px;
+  display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap;
+}
+.doc-meta-sep { opacity: .3; }
+
+/* intro box */
+.intro-box {
+  background: #F8F8FC;
+  border: 1px solid rgba(0,0,0,.07);
+  border-left: 3px solid #00D4E8;
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin-bottom: 56px;
+  font-size: 15px;
+  color: rgba(0,0,0,.55);
+  line-height: 1.7;
+}
+
+/* sections */
+.doc-section { margin-bottom: 56px; scroll-margin-top: 80px; }
+.doc-section:last-child { margin-bottom: 0; }
+
+.section-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 2px;
+  color: #00B8CC; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700;
+  letter-spacing: -.5px; color: #0A0A14;
+  margin-bottom: 20px; line-height: 1.2;
+}
+.section-body p {
+  font-size: 15px; color: rgba(0,0,0,.65);
+  line-height: 1.8; margin-bottom: 16px;
+}
+.section-body p:last-child { margin-bottom: 0; }
+
+/* sub headings */
+.sub-title {
+  font-size: 14px; font-weight: 600;
+  color: #0A0A14; margin: 24px 0 10px;
+  letter-spacing: -.1px;
+}
+
+/* lists */
+.doc-list {
+  list-style: none;
+  margin: 16px 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.doc-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 15px; color: rgba(0,0,0,.65); line-height: 1.7;
+}
+.doc-list li::before {
+  content: '';
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #00D4E8; flex-shrink: 0;
+  margin-top: 9px;
+}
+
+/* data table */
+.data-table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: 14px;
+}
+.data-table th {
+  text-align: left; padding: 10px 14px;
+  background: #F4F4F8;
+  font-weight: 600; font-size: 12px;
+  color: rgba(0,0,0,.5); letter-spacing: .3px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.data-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  color: rgba(0,0,0,.65); line-height: 1.6;
+  vertical-align: top;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(0,0,0,.015); }
+
+/* highlight box */
+.highlight {
+  background: #F4F4F8;
+  border: 1px solid rgba(0,0,0,.07);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-size: 14px;
+  color: rgba(0,0,0,.55);
+  line-height: 1.75;
+}
+.highlight strong { color: #0A0A14; font-weight: 600; }
+
+/* contact card */
+.contact-card {
+  background: linear-gradient(135deg, rgba(0,212,232,.05), rgba(75,123,245,.05));
+  border: 1px solid rgba(0,212,232,.15);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-top: 24px;
+}
+.contact-card-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size: 16px;
+  letter-spacing: -.3px; color: #0A0A14;
+  margin-bottom: 12px;
+}
+.contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: rgba(0,0,0,.55);
+  margin-bottom: 8px;
+}
+.contact-item:last-child { margin-bottom: 0; }
+.contact-item a { color: #00B8CC; text-decoration: none; font-weight: 500; }
+.contact-item a:hover { text-decoration: underline; }
+
+/* divider */
+.divider { height: 1px; background: rgba(0,0,0,.07); margin: 48px 0; }
+
+/* footer */
+.doc-footer {
+  max-width: 1100px; margin: 0 auto;
+  padding: 40px 48px;
+  border-top: 1px solid rgba(0,0,0,.07);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 12px; color: rgba(0,0,0,.3); font-family: 'DM Mono', monospace; }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: rgba(0,0,0,.4); text-decoration: none; font-weight: 500; transition: color .15s; }
+.footer-links a:hover { color: #0A0A14; }
+
+/* responsive */
+@media (max-width: 860px) {
+  nav { padding: 0 24px; }
+  .page { grid-template-columns: 1fr; gap: 0; padding: 40px 24px 80px; }
+  .toc { display: none; }
+  .doc-footer { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <img src="fylox-logo.png" alt="Fylox" style="width:28px;height:28px;object-fit:contain">
+    </div>
+    <span class="nav-logo-name">Fylox Protocol</span>
+  </a>
+  <a href="/" class="nav-back">
+    ← Back to home
+  </a>
+</nav>
+
+<!-- MAIN -->
+<div class="page">
+
+  <!-- TOC SIDEBAR -->
+  <aside class="toc">
+    <div class="toc-label">Contents</div>
+    <ul class="toc-list">
+      <li class="toc-item"><a href="#s1" class="toc-link active">1. Introduction</a></li>
+      <li class="toc-item"><a href="#s2" class="toc-link">2. Who We Are</a></li>
+      <li class="toc-item"><a href="#s3" class="toc-link">3. Information We Collect</a></li>
+      <li class="toc-item"><a href="#s4" class="toc-link">4. How We Use Your Information</a></li>
+      <li class="toc-item"><a href="#s5" class="toc-link">5. Pi Network & Third Parties</a></li>
+      <li class="toc-item"><a href="#s6" class="toc-link">6. Data Retention</a></li>
+      <li class="toc-item"><a href="#s7" class="toc-link">7. Your Rights</a></li>
+      <li class="toc-item"><a href="#s8" class="toc-link">8. Security</a></li>
+      <li class="toc-item"><a href="#s9" class="toc-link">9. Children's Privacy</a></li>
+      <li class="toc-item"><a href="#s10" class="toc-link">10. International Transfers</a></li>
+      <li class="toc-item"><a href="#s11" class="toc-link">11. Changes to This Policy</a></li>
+      <li class="toc-item"><a href="#s12" class="toc-link">12. Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- DOCUMENT -->
+  <main class="content">
+
+    <!-- HEADER -->
+    <div class="doc-header">
+      <div class="doc-badge">
+        <div class="doc-badge-dot"></div>
+        Legal Document
+      </div>
+      <h1 class="doc-title">Privacy Policy</h1>
+      <div class="doc-meta">
+        <span>Fylox Protocol</span>
+        <span class="doc-meta-sep">·</span>
+        <span>Effective: March 19, 2026</span>
+        <span class="doc-meta-sep">·</span>
+        <span>Version 1.0</span>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro-box">
+      This Privacy Policy explains how Fylox Protocol ("Fylox," "we," "us," or "our") collects, uses, and protects information about you when you use our application and services. We are committed to protecting your privacy and being transparent about our data practices. Please read this policy carefully.
+    </div>
+
+    <!-- S1 -->
+    <div class="doc-section" id="s1">
+      <div class="section-num">01</div>
+      <h2 class="section-title">Introduction</h2>
+      <div class="section-body">
+        <p>Fylox Protocol is a payment infrastructure application built natively on Pi Network, designed to allow Pi Network Pioneers to send, receive, and spend Pi in their daily lives. Our services include Pi-native payments, QR-based merchant payments, and related financial tools.</p>
+        <p>By using Fylox, you agree to the collection and use of information in accordance with this policy. We collect only what we need to provide the service, and we never sell your personal data.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S2 -->
+    <div class="doc-section" id="s2">
+      <div class="section-num">02</div>
+      <h2 class="section-title">Who We Are</h2>
+      <div class="section-body">
+        <p>Fylox Protocol is operated as an independent third-party application built on the Pi Network ecosystem. We are not affiliated with, endorsed by, or a subsidiary of Pi Network or its parent company, Social Chain Inc.</p>
+        <p>For the purposes of applicable data protection law, Fylox Protocol is the data controller of your personal information collected through our application.</p>
+        <div class="highlight">
+          <strong>Important:</strong> Fylox Protocol operates in Testnet mode during the current phase. All transaction values shown in the application are for demonstration purposes only and do not represent real financial value. This policy applies to both Testnet and future Mainnet operations.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S3 -->
+    <div class="doc-section" id="s3">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Information We Collect</h2>
+      <div class="section-body">
+
+        <div class="sub-title">3.1 Information from Pi Network</div>
+        <p>When you authenticate with Fylox using your Pi Network account, we receive the following information from Pi Network's SDK, subject to your consent:</p>
+        <ul class="doc-list">
+          <li>Your Pi Network username</li>
+          <li>Your Pi Network user ID (UID) — a unique identifier assigned by Pi Network</li>
+          <li>Your Pi Network KYC verification status</li>
+          <li>An access token to facilitate payments on your behalf</li>
+        </ul>
+        <p>We do not receive your Pi wallet private keys, biometric data, phone number, or any other sensitive identity information directly from Pi Network.</p>
+
+        <div class="sub-title">3.2 Transaction Data</div>
+        <p>When you use Fylox to send, receive, or make payments, we collect:</p>
+        <ul class="doc-list">
+          <li>Payment amounts and recipients</li>
+          <li>Transaction identifiers (payment IDs, blockchain transaction IDs)</li>
+          <li>Timestamps of transactions</li>
+          <li>Payment memos and metadata you provide</li>
+        </ul>
+
+        <div class="sub-title">3.3 Usage Data</div>
+        <p>We automatically collect certain technical information when you use our application:</p>
+        <ul class="doc-list">
+          <li>App version and device type</li>
+          <li>Language and region preferences</li>
+          <li>General usage patterns (screens visited, features used)</li>
+          <li>Error logs and crash reports</li>
+        </ul>
+
+        <div class="sub-title">3.4 What We Do Not Collect</div>
+        <ul class="doc-list">
+          <li>Your real name, email address, or physical address</li>
+          <li>Payment card numbers or bank account details</li>
+          <li>Government-issued ID or passport data</li>
+          <li>Precise geolocation data</li>
+          <li>Biometric data of any kind</li>
+        </ul>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Source</th>
+              <th>Required?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pi Username</td>
+              <td>Pi Network SDK</td>
+              <td>Yes — for account identification</td>
+            </tr>
+            <tr>
+              <td>Pi UID</td>
+              <td>Pi Network SDK</td>
+              <td>Yes — for backend authentication</td>
+            </tr>
+            <tr>
+              <td>KYC Status</td>
+              <td>Pi Network SDK</td>
+              <td>Yes — required to process payments</td>
+            </tr>
+            <tr>
+              <td>Transaction History</td>
+              <td>Fylox Backend</td>
+              <td>Yes — to display your activity</td>
+            </tr>
+            <tr>
+              <td>Language Preference</td>
+              <td>Device / User</td>
+              <td>No — improves experience</td>
+            </tr>
+            <tr>
+              <td>Error Logs</td>
+              <td>App</td>
+              <td>No — helps us fix bugs</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S4 -->
+    <div class="doc-section" id="s4">
+      <div class="section-num">04</div>
+      <h2 class="section-title">How We Use Your Information</h2>
+      <div class="section-body">
+        <p>We use the information we collect strictly to operate and improve the Fylox service. Specifically:</p>
+
+        <div class="sub-title">To provide the service</div>
+        <ul class="doc-list">
+          <li>Authenticate you via Pi Network and create your Fylox session</li>
+          <li>Process Pi payments on your behalf through the Pi Network blockchain</li>
+          <li>Display your transaction history and balance</li>
+          <li>Enable QR-based payments at merchants</li>
+        </ul>
+
+        <div class="sub-title">To improve the service</div>
+        <ul class="doc-list">
+          <li>Diagnose and fix technical errors</li>
+          <li>Understand how users interact with the app to prioritize improvements</li>
+          <li>Detect and prevent fraudulent or unauthorized use</li>
+        </ul>
+
+        <div class="sub-title">To comply with legal obligations</div>
+        <ul class="doc-list">
+          <li>Comply with applicable laws and regulations</li>
+          <li>Respond to lawful requests from public authorities</li>
+        </ul>
+
+        <div class="highlight">
+          <strong>We do not:</strong> sell your personal data to third parties, use your data for advertising, build behavioral profiles for marketing purposes, or share your data with data brokers of any kind.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S5 -->
+    <div class="doc-section" id="s5">
+      <div class="section-num">05</div>
+      <h2 class="section-title">Pi Network & Third Parties</h2>
+      <div class="section-body">
+        <p>Fylox Protocol integrates with Pi Network's official SDK and payment APIs. When you use Fylox, certain interactions are governed by Pi Network's own privacy policy, which we encourage you to review at minepi.com.</p>
+
+        <div class="sub-title">Pi Network</div>
+        <p>Pi Network processes authentication requests and payment transactions on the blockchain independently of Fylox. Pi Network's collection and use of your data is subject to their own privacy policy and terms of service.</p>
+
+        <div class="sub-title">Hosting Infrastructure</div>
+        <p>Our backend infrastructure is hosted on Render (render.com). Render processes server-side data as a data processor on our behalf, subject to Render's data processing agreement and privacy policy.</p>
+
+        <div class="sub-title">Analytics & Error Tracking</div>
+        <p>We currently do not use third-party analytics services. If this changes, we will update this policy and notify users accordingly before any such services are activated.</p>
+
+        <div class="sub-title">No Data Sales</div>
+        <p>We will never sell, rent, or lease your personal data to any third party, for any reason, under any circumstances.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S6 -->
+    <div class="doc-section" id="s6">
+      <div class="section-num">06</div>
+      <h2 class="section-title">Data Retention</h2>
+      <div class="section-body">
+        <p>We retain your data for as long as your account is active and for a reasonable period thereafter to comply with legal obligations and resolve disputes.</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Retention Period</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Account data (Pi UID, username)</td>
+              <td>Duration of account + 90 days after deletion request</td>
+            </tr>
+            <tr>
+              <td>Transaction records</td>
+              <td>5 years (for financial compliance purposes)</td>
+            </tr>
+            <tr>
+              <td>Error logs</td>
+              <td>30 days</td>
+            </tr>
+            <tr>
+              <td>Usage data</td>
+              <td>12 months</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>After the applicable retention period, your data is securely deleted or anonymized so it can no longer be associated with you.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S7 -->
+    <div class="doc-section" id="s7">
+      <div class="section-num">07</div>
+      <h2 class="section-title">Your Rights</h2>
+      <div class="section-body">
+        <p>Depending on your location, you may have the following rights regarding your personal data. We respect and honor these rights regardless of where you are located.</p>
+
+        <ul class="doc-list">
+          <li><strong style="color:#0A0A14;font-weight:600">Right to access</strong> — Request a copy of the personal data we hold about you.</li>
+          <li><strong style="color:#0A0A14;font-weight:600">Right to rectification</strong> — Request that we correct inaccurate or incomplete data.</li>
+          <li><strong style="color:#0A0A14;font-weight:600">Right to erasure</strong> — Request that we delete your personal data, subject to legal retention obligations.</li>
+          <li><strong style="color:#0A0A14;font-weight:600">Right to portability</strong> — Request your data in a structured, machine-readable format.</li>
+          <li><strong style="color:#0A0A14;font-weight:600">Right to object</strong> — Object to processing of your data for certain purposes.</li>
+          <li><strong style="color:#0A0A14;font-weight:600">Right to restrict processing</strong> — Request that we limit how we use your data in certain circumstances.</li>
+        </ul>
+
+        <p>To exercise any of these rights, contact us at the address provided in Section 12. We will respond to your request within 30 days. We will never discriminate against you for exercising your privacy rights.</p>
+
+        <div class="highlight">
+          <strong>Account deletion:</strong> To delete your Fylox account and associated data, contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0676746f7067657f46607f6a697e767469726965696a2865696b">[email&#160;protected]</a>. Note that blockchain transaction records are immutable and cannot be deleted from the Pi Network blockchain, as they are outside our control.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S8 -->
+    <div class="doc-section" id="s8">
+      <div class="section-num">08</div>
+      <h2 class="section-title">Security</h2>
+      <div class="section-body">
+        <p>We take the security of your data seriously and implement industry-standard measures to protect it:</p>
+        <ul class="doc-list">
+          <li>All data transmitted between the app and our servers is encrypted using HTTPS/TLS</li>
+          <li>Authentication tokens are short-lived and signed using industry-standard JWT with HS256</li>
+          <li>We do not store Pi Network access tokens beyond the duration of your session</li>
+          <li>Our backend enforces rate limiting, CORS restrictions, and input validation on all endpoints</li>
+          <li>Passwords are never stored — authentication is delegated entirely to Pi Network</li>
+        </ul>
+        <p>Despite these measures, no system is completely immune to security risks. In the event of a data breach that affects your personal data, we will notify you as required by applicable law.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S9 -->
+    <div class="doc-section" id="s9">
+      <div class="section-num">09</div>
+      <h2 class="section-title">Children's Privacy</h2>
+      <div class="section-body">
+        <p>Fylox Protocol is not directed at children under the age of 13, or under the age of 16 in jurisdictions where a higher age threshold applies (such as the European Union).</p>
+        <p>We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us immediately at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="81f1f3e8f7e0e2f8c1e7f8edeef9f1f3eef5eee2eeedafe2eeec">[email&#160;protected]</a> and we will take steps to delete that information promptly.</p>
+        <p>Access to Fylox also requires a Pi Network account with completed KYC verification, which has its own age requirements enforced by Pi Network independently of Fylox.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S10 -->
+    <div class="doc-section" id="s10">
+      <div class="section-num">10</div>
+      <h2 class="section-title">International Data Transfers</h2>
+      <div class="section-body">
+        <p>Fylox Protocol serves users globally, across 200+ countries. Our backend infrastructure is hosted in the United States (Oregon region via Render). By using Fylox, you acknowledge that your data may be transferred to and processed in the United States or other countries that may have different data protection laws than your country of residence.</p>
+        <p>For users in the European Economic Area (EEA), United Kingdom, or Switzerland, we rely on Standard Contractual Clauses (SCCs) as the lawful mechanism for international data transfers where applicable.</p>
+        <p>We are committed to ensuring that your data receives an adequate level of protection regardless of where it is processed.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S11 -->
+    <div class="doc-section" id="s11">
+      <div class="section-num">11</div>
+      <h2 class="section-title">Changes to This Policy</h2>
+      <div class="section-body">
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes, we will:</p>
+        <ul class="doc-list">
+          <li>Update the "Effective Date" at the top of this policy</li>
+          <li>Post the updated policy at fyloxprotocol.com/privacy</li>
+          <li>For material changes, provide prominent notice within the application</li>
+        </ul>
+        <p>Your continued use of Fylox after any changes constitutes acceptance of the updated policy. If you do not agree with the changes, you should discontinue use of the service and request account deletion.</p>
+        <p>We will not make material changes to how we use your data without giving you the opportunity to opt out or discontinue using the service.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- S12 -->
+    <div class="doc-section" id="s12">
+      <div class="section-num">12</div>
+      <h2 class="section-title">Contact Us</h2>
+      <div class="section-body">
+        <p>If you have questions about this Privacy Policy, want to exercise your rights, or have concerns about how we handle your data, please reach out to us. We take all privacy inquiries seriously and will respond within 30 days.</p>
+        <div class="contact-card">
+          <div class="contact-card-title">Fylox Protocol — Privacy Contact</div>
+          <div class="contact-item">
+            <span>📧</span>
+            <span>Email: <a href="/cdn-cgi/l/email-protection#bececcd7c8dfddc7fed8c7d2d1c6ceccd1cad1ddd1d290ddd1d3"><span class="__cf_email__" data-cfemail="dbaba9b2adbab8a29bbda2b7b4a3aba9b4afb4b8b4b7f5b8b4b6">[email&#160;protected]</span></a></span>
+          </div>
+          <div class="contact-item">
+            <span>🌐</span>
+            <span>Website: <a href="https://fyloxprotocol.com" target="_blank">fyloxprotocol.com</a></span>
+          </div>
+          <div class="contact-item">
+            <span>✈</span>
+            <span>Telegram: <a href="https://t.me/FyloxProtocol" target="_blank">t.me/FyloxProtocol</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <div class="footer-copy">© 2026 Fylox Protocol · fyloxprotocol.com · Privacy Policy v1.0</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="/cdn-cgi/l/email-protection#deaeacb7a8bfbda79eb8a7b2b1a6aeacb1aab1bdb1b2f0bdb1b3">Contact</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Active TO
